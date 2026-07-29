@@ -191,13 +191,25 @@ document.addEventListener('DOMContentLoaded', () => {
         // Nav visibility & toggles
         if (window.scrollY > 200) {
             nav.classList.add('visible');
-            if (heroGetInTouch) heroGetInTouch.style.opacity = '0';
-            if (heroGetInTouch) heroGetInTouch.style.visibility = 'hidden';
+            if (heroGetInTouch) {
+                heroGetInTouch.style.opacity = '0';
+                heroGetInTouch.style.visibility = 'hidden';
+            }
+            if (heroViewAllAppsBtn) {
+                heroViewAllAppsBtn.style.opacity = '0';
+                heroViewAllAppsBtn.style.visibility = 'hidden';
+            }
             if (goToTop) goToTop.classList.add('visible');
         } else {
             nav.classList.remove('visible');
-            if (heroGetInTouch) heroGetInTouch.style.opacity = '1';
-            if (heroGetInTouch) heroGetInTouch.style.visibility = 'visible';
+            if (heroGetInTouch) {
+                heroGetInTouch.style.opacity = '1';
+                heroGetInTouch.style.visibility = 'visible';
+            }
+            if (heroViewAllAppsBtn) {
+                heroViewAllAppsBtn.style.opacity = '1';
+                heroViewAllAppsBtn.style.visibility = 'visible';
+            }
             if (goToTop) goToTop.classList.remove('visible');
         }
 

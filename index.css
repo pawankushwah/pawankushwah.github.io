@@ -303,6 +303,7 @@ nav.visible {
 }
 
 .btn-secondary {
+    background: transparent;
     border: 1px solid var(--border);
     color: var(--text-primary);
 }
@@ -402,6 +403,14 @@ nav.visible {
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
+    overflow: hidden; /* Ensure large images don't spill out */
+}
+
+.project-logo img,
+.project-logo svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .project-card h3 {
