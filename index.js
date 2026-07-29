@@ -32,6 +32,112 @@ const setTheme = (theme) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Floating Apps Data
+    const appsData = [
+        {
+            id: "app1",
+            name: "Passpic Passport Photo Maker",
+            description: "Create professional passport, visa, and ID photos instantly using advanced AI background removal and formatting.",
+            icon: "passpic.png",
+            href: "https://passpic.annodiya.in/",
+            color: "var(--primary)",
+            isViewAll: false
+        },
+        {
+            id: "app2",
+            name: "Sevarthi",
+            description: "Rides, repairs, and skilled workers — all at your doorstep. A complete on-demand service marketplace.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+            href: "https://sevarthi.vercel.app/",
+            color: "var(--accent-orange)",
+            isViewAll: false
+        }
+    ];
+
+    // Render Apps
+    const appsSheetGrid = document.getElementById('apps-sheet-grid');
+    const appsSheet = document.getElementById('apps-sheet');
+    const appsSheetOverlay = document.getElementById('apps-sheet-overlay');
+    const closeAppsSheet = document.getElementById('close-apps-sheet');
+
+    if (appsSheetGrid) {
+        // Clear containers
+        appsSheetGrid.innerHTML = '';
+
+        appsData.forEach((app, index) => {
+            // Check if icon is SVG string or Image URL
+            const isSvg = app.icon.trim().startsWith('<svg');
+            const iconHTML = isSvg ? app.icon : `<img src="${app.icon}" alt="${app.name} icon">`;
+
+            // Render for Apps Sheet (exclude viewAll item)
+            if (!app.isViewAll) {
+                const gridItem = document.createElement('a');
+                gridItem.href = app.href;
+                if (app.href !== "#") gridItem.target = "_blank";
+                gridItem.className = 'project-card';
+                gridItem.style.display = 'block';
+                gridItem.style.textDecoration = 'none';
+                gridItem.style.color = 'inherit';
+                gridItem.style.borderTop = `4px solid ${app.color || 'var(--primary)'}`;
+                
+                gridItem.innerHTML = `
+                    <div class="project-logo">
+                        ${iconHTML}
+                    </div>
+                    <h3 style="color: var(--text-primary);">${app.name}</h3>
+                    <p style="color: var(--text-secondary);">${app.description || ''}</p>
+                    <span class="project-link">
+                        Launch Application
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </span>
+                `;
+
+                if (app.href === "#") {
+                    gridItem.addEventListener('click', (e) => {
+                        e.preventDefault();
+                    });
+                }
+
+                appsSheetGrid.appendChild(gridItem);
+            }
+        });
+    }
+
+    // Apps Sheet Logic
+    function openAppsSheet() {
+        if (appsSheet) appsSheet.classList.add('open');
+        if (appsSheetOverlay) appsSheetOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeAppsSheetFunc() {
+        if (appsSheet) appsSheet.classList.remove('open');
+        if (appsSheetOverlay) appsSheetOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (closeAppsSheet) {
+        closeAppsSheet.addEventListener('click', closeAppsSheetFunc);
+    }
+
+    if (appsSheetOverlay) {
+        appsSheetOverlay.addEventListener('click', closeAppsSheetFunc);
+    }
+
+    const heroViewAllAppsBtn = document.getElementById('hero-view-all-apps');
+    if (heroViewAllAppsBtn) {
+        heroViewAllAppsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openAppsSheet();
+        });
+    }
+
+    // Automatically open apps sheet on load
+    openAppsSheet();
+
     // Initial Theme
     const savedTheme = localStorage.getItem('portfolio-theme') || 'system';
     setTheme(savedTheme);

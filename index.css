@@ -213,11 +213,15 @@ nav.visible {
     box-shadow: 0 6px 20px var(--primary-glow);
 }
 
-/* Hero Section */
 .hero {
     padding: 10rem 0 8rem;
     text-align: center;
     position: relative;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 20;
 }
 
 .hero-logo {
@@ -370,7 +374,7 @@ nav.visible {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
 
@@ -823,7 +827,8 @@ nav.visible {
         font-size: 3.5rem;
     }
 
-    .projects-grid {
+    .projects-grid,
+    .apps-sheet-grid {
         grid-template-columns: 1fr;
     }
 
@@ -854,4 +859,105 @@ nav.visible {
         width: 100%;
         text-align: center;
     }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .apps-sheet-header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .apps-sheet-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Sliding Apps Sheet */
+.apps-sheet-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.apps-sheet-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.apps-sheet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card-bg);
+    z-index: 10001;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding-bottom: 3rem;
+}
+
+.apps-sheet.open {
+    transform: translateY(0);
+}
+
+.apps-sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.apps-sheet-header h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+[data-theme="light"] .close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.apps-sheet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
 }
