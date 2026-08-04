@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll Events: Nav visibility, Go to Top, Progress Bar, Active Links
     const nav = document.querySelector('nav');
     const heroGetInTouch = document.getElementById('hero-get-in-touch');
+    const heroUtilities = document.getElementById('hero-utilities');
     const goToTop = document.getElementById('go-to-top');
     const scrollProgress = document.getElementById('scroll-progress');
     const sections = document.querySelectorAll('section');
@@ -199,6 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroViewAllAppsBtn.style.opacity = '0';
                 heroViewAllAppsBtn.style.visibility = 'hidden';
             }
+            if (heroUtilities) {
+                heroUtilities.style.opacity = '0';
+                heroUtilities.style.visibility = 'hidden';
+            }
             if (goToTop) goToTop.classList.add('visible');
         } else {
             nav.classList.remove('visible');
@@ -209,6 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (heroViewAllAppsBtn) {
                 heroViewAllAppsBtn.style.opacity = '1';
                 heroViewAllAppsBtn.style.visibility = 'visible';
+            }
+            if (heroUtilities) {
+                heroUtilities.style.opacity = '1';
+                heroUtilities.style.visibility = 'visible';
             }
             if (goToTop) goToTop.classList.remove('visible');
         }

@@ -1,0 +1,16 @@
+{
+  "name": "Tiffin Manager",
+  "short_name": "Tiffin",
+  "description": "Manage your daily tiffin arrivals easily.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "../../tiffin.png",
+      "type": "image/png",
+      "sizes": "any"
+    }
+  ]
+}

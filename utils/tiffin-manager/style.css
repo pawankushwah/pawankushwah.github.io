@@ -1,0 +1,545 @@
+/* Tiffin Manager specific styles */
+
+nav {
+    position: static;
+    transform: none !important;
+    background: transparent;
+    border-bottom: none;
+    backdrop-filter: none;
+    margin-bottom: 2rem;
+}
+
+.app-container {
+    padding: 2rem 0 4rem;
+    min-height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.data-actions {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+/* Stats Overview */
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+}
+
+.text-success { color: #10B981; }
+.text-danger { color: #EF4444; }
+.text-warning { color: #F59E0B; }
+
+/* Month Controls */
+.month-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card-bg);
+    padding: 1rem 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+#calendar-title {
+    font-size: 1.15rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Days List/Grid */
+.days-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.days-list.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.day-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: var(--transition);
+}
+
+.grid-view .day-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+}
+
+/* Background coloring based on status */
+.bg-arrived {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.bg-not-arrived {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.day-item.today {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.day-item:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+}
+
+.day-item.locked {
+    opacity: 0.7;
+}
+
+.day-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    border-right: 1px solid var(--border);
+    padding-right: 1.5rem;
+}
+
+.grid-view .day-date {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 1rem;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.day-num {
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1;
+}
+
+.day-name {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.day-content {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.day-desc {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.day-empty {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.day-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.day-status {
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.status-pending {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+}
+
+.bg-arrived .status-arrived {
+    background: #10B981;
+    color: white;
+}
+.bg-not-arrived .status-not-arrived {
+    background: #EF4444;
+    color: white;
+}
+.status-arrived {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+.status-not-arrived {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+.day-action {
+    margin-left: 1rem;
+}
+
+.grid-view .day-action {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    margin-left: 0;
+    width: auto;
+}
+
+.edit-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-view .edit-btn {
+    width: auto;
+}
+
+.edit-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.edit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Modals */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 450px;
+    z-index: 1001;
+    display: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modal.active, .modal-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.close-modal {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--text-primary);
+}
+
+/* PIN Inputs */
+.pin-inputs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.pin-box {
+    width: 50px;
+    height: 60px;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    outline: none;
+    transition: var(--transition);
+}
+
+.pin-box:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+/* Status Radio Buttons (Edit Modal) */
+.status-toggle-group {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.status-radio {
+    flex: 1;
+    cursor: pointer;
+}
+
+.status-radio input {
+    display: none;
+}
+
+.radio-btn {
+    display: block;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.status-radio input:checked + .radio-btn {
+    color: white;
+}
+
+.status-radio input:checked + .radio-btn.pending { background: #64748B; }
+.status-radio input:checked + .radio-btn.arrived { background: #10B981; }
+.status-radio input:checked + .radio-btn.not-arrived { background: #EF4444; }
+
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text-primary);
+    color: var(--background);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .day-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .day-date {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding-right: 0;
+        padding-bottom: 1rem;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+        align-items: baseline;
+    }
+    .day-action {
+        margin-left: 0;
+        width: 100%;
+    }
+    .edit-btn {
+        width: 100%;
+    }
+    .status-toggle-group {
+        flex-direction: column;
+    }
+}
+
+/* Modal Inputs */
+.modal-input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: inherit;
+    outline: none;
+    transition: var(--transition);
+}
+
+.modal-input:focus {
+    border-color: var(--primary);
+    background: rgba(255,255,255,0.1);
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] .data-actions,
+[data-theme="light"] .status-pending,
+[data-theme="light"] .pin-box,
+[data-theme="light"] .status-toggle-group,
+[data-theme="light"] .modal-input {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .icon-btn:hover,
+[data-theme="light"] .tag,
+[data-theme="light"] .edit-btn:hover:not(:disabled),
+[data-theme="light"] .pin-box:focus,
+[data-theme="light"] .modal-input:focus {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .day-item.today {
+    background: rgba(0, 112, 243, 0.05); /* keep this one based on primary color */
+}
+
+[data-theme="light"] .status-radio input:checked + .radio-btn {
+    color: white; /* already handled */
+}
+
