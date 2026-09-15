@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
             padding: 4rem 0 4rem;
             text-align: center;
         }
+
         nav {
             position: static !important;
             transform: none !important;
@@ -18,6 +20,7 @@
             backdrop-filter: none !important;
             margin-bottom: 2rem;
         }
+
         .utils-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
@@ -25,6 +28,7 @@
             margin-bottom: 6rem;
             justify-content: center;
         }
+
         .util-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -38,12 +42,14 @@
             text-decoration: none;
             color: var(--text-primary);
         }
+
         .util-card:hover {
             background: var(--card-hover);
             border-color: var(--primary);
             transform: translateY(-8px);
             box-shadow: 0 10px 30px var(--primary-glow);
         }
+
         .util-icon {
             width: 64px;
             height: 64px;
@@ -55,25 +61,29 @@
             justify-content: center;
             margin-bottom: 1.5rem;
         }
+
         .util-icon svg {
             width: 32px;
             height: 32px;
         }
+
         .util-card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
+
         .util-card p {
             color: var(--text-secondary);
             font-size: 0.95rem;
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="container nav-container">
             <a href="../index.html" class="logo" style="text-decoration: none;">
-                <img src="../annodiya-logo.png" alt="Logo" class="logo-img">
+                <img src="../images/annodiya-logo.png" alt="Logo" class="logo-img">
                 <span class="logo-text">nno<span>diya</span></span>
             </a>
             <div class="nav-links">
@@ -92,25 +102,45 @@
     <main>
         <section class="utils-hero">
             <div class="container">
-                <h1 class="gradient-text">Utilities</h1>
+                <h1 class="gradient-text">Apps & Utilities</h1>
                 <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto 0; font-size: 1.1rem;">
-                    A collection of handy tools and mini-applications to streamline daily tasks.
+                    A collection of our main applications and handy mini-tools.
                 </p>
             </div>
         </section>
 
         <section class="container">
             <div class="utils-grid">
+                <a href="https://passpic.annodiya.in/" target="_blank" class="util-card">
+                    <div class="util-icon">
+                        <img src="../images/passpic.png" alt="Passpic" style="width: 100%; height: 100%; border-radius: 16px; object-fit: cover;">
+                    </div>
+                    <h3>Passpic Passport Photo</h3>
+                    <p>Create professional passport, visa, and ID photos instantly using advanced AI.</p>
+                </a>
+
+                <a href="https://sevarthi.vercel.app/" target="_blank" class="util-card">
+                    <div class="util-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Sevarthi</h3>
+                    <p>Rides, repairs, and skilled workers — all at your doorstep. A complete on-demand service marketplace.</p>
+                </a>
+
                 <a href="tiffin-manager/index.html" class="util-card">
                     <div class="util-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <path d="M16 10a4 4 0 0 1-8 0"></path>
-                        </svg>
+                        <img src="../images/tiffin.png" alt="Tiffin Manager" style="width: 100%; height: 100%; border-radius: 16px; object-fit: cover;">
                     </div>
                     <h3>Tiffin Manager</h3>
                     <p>Track your daily tiffin arrivals, manage monthly records, and export your data securely.</p>
+                </a>
+
+                <a href="work-tracker/index.html" class="util-card">
+                    <div class="util-icon">
+                        <img src="../images/work-tracker-logo.png" alt="Work Tracker" style="width: 100%; height: 100%; border-radius: 16px; object-fit: cover;">
+                    </div>
+                    <h3>Work Tracker</h3>
+                    <p>Track your working hours, manage active sessions, and stay productive.</p>
                 </a>
             </div>
         </section>
@@ -127,4 +157,5 @@
         }
     </script>
 </body>
+
 </html>

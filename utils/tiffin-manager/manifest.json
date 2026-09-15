@@ -8,7 +8,7 @@
   "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "../../tiffin.png",
+      "src": "../../images/tiffin.png",
       "type": "image/png",
       "sizes": "any"
     }

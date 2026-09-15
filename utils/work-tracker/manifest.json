@@ -1,0 +1,16 @@
+{
+  "name": "Work Tracker",
+  "short_name": "WorkTrack",
+  "description": "Track your office working hours efficiently.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "../../images/work-tracker-logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
