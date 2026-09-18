@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="./images/annodiya-logo.png" type="image/png">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        const theme = localStorage.getItem('portfolio-theme') || 'light';
+        if (theme === 'light' || (theme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
 </head>
 
 <body>
@@ -71,13 +77,8 @@
                 <div class="shape shape-2"></div>
             </div>
             <div class="container">
-                <div class="hero-logo">
-                    <img src="./images/annodiya-logo.png" alt="Logo" class="hero-logo-img">
-                    <span class="hero-logo-text">nno<span>diya</span></span>
-                </div>
-                <h1 class="gradient-text">Where modern engineering<br>meets real impact</h1>
-                <p>We are not just writing code. We're crafting solutions that simplify life and empower businesses with
-                    seamless digital workflows.</p>
+                <h1 class="gradient-text">Hi, I'm Pawan Kushwah.<br>Building digital experiences.</h1>
+                <p>I'm a passionate software engineer specializing in crafting intuitive, high-performance web applications and beautifully designed user interfaces.</p>
                 <div class="hero-btns">
                     <a href="tel:+919303011791" class="btn btn-primary" id="hero-get-in-touch"
                         style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: opacity 0.3s ease, visibility 0.3s ease;">

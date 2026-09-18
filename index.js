@@ -21,10 +21,18 @@ const setTheme = (theme) => {
 
     if (theme === 'system') {
         const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        html.removeAttribute('data-theme');
+        if (!isDark) {
+            html.setAttribute('data-theme', 'light');
+        } else {
+            html.removeAttribute('data-theme');
+        }
         document.querySelector('[data-theme-btn="system"]').classList.add('active');
     } else {
-        html.setAttribute('data-theme', theme);
+        if (theme === 'light') {
+            html.setAttribute('data-theme', 'light');
+        } else {
+            html.removeAttribute('data-theme');
+        }
         document.querySelector(`[data-theme-btn="${theme}"]`).classList.add('active');
     }
 
@@ -35,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Initial Theme
-    const savedTheme = localStorage.getItem('portfolio-theme') || 'system';
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
     setTheme(savedTheme);
 
     // Theme Toggle Listeners
