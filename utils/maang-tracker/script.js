@@ -2,6 +2,9 @@
 const STORAGE_KEY = 'maang-tracker-data';
 let rolesData = [];
 
+const TODO_STORAGE_KEY = 'maang-tracker-todos';
+let todosData = [];
+
 // DOM Elements
 const columns = {
     found: document.getElementById('col-found'),
@@ -29,11 +32,16 @@ const exportBtn = document.getElementById('exportBtn');
 const importBtn = document.getElementById('importBtn');
 const fileInput = document.getElementById('fileInput');
 
+const todoForm = document.getElementById('todoForm');
+const todoInput = document.getElementById('todoInput');
+const todoList = document.getElementById('todoList');
+
 // Initialize
 function init() {
     loadData();
     renderBoard();
     renderFunnel();
+    renderTodos();
     setupEventListeners();
 }
 
@@ -43,12 +51,20 @@ function loadData() {
     if (data) {
         rolesData = JSON.parse(data);
     }
+    const todoDataRaw = localStorage.getItem(TODO_STORAGE_KEY);
+    if (todoDataRaw) {
+        todosData = JSON.parse(todoDataRaw);
+    }
 }
 
 function saveData() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(rolesData));
     renderFunnel();
     updateCounts();
+}
+
+function saveTodoData() {
+    localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todosData));
 }
 
 function addRole(company, title, link) {
@@ -258,6 +274,58 @@ function setupEventListeners() {
         fileInput.value = ""; // Reset input
     });
 }
+
+// Todo Logic
+function renderTodos() {
+    todoList.innerHTML = '';
+    todosData.forEach(todo => {
+        const li = document.createElement('li');
+        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+        
+        li.innerHTML = `
+            <div class="todo-content">
+                <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo('${todo.id}')">
+                <span class="todo-text" onclick="toggleTodo('${todo.id}')">${todo.text}</span>
+            </div>
+            <button class="todo-delete" onclick="deleteTodo('${todo.id}')">&times;</button>
+        `;
+        todoList.appendChild(li);
+    });
+}
+
+function addTodo(text) {
+    todosData.push({
+        id: Date.now().toString(),
+        text: text,
+        completed: false
+    });
+    saveTodoData();
+    renderTodos();
+}
+
+function toggleTodo(id) {
+    const todo = todosData.find(t => t.id === id);
+    if (todo) {
+        todo.completed = !todo.completed;
+        saveTodoData();
+        renderTodos();
+    }
+}
+
+function deleteTodo(id) {
+    todosData = todosData.filter(t => t.id !== id);
+    saveTodoData();
+    renderTodos();
+}
+
+todoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = todoInput.value.trim();
+    if (text) {
+        addTodo(text);
+        todoInput.value = '';
+    }
+});
 
 // Start app
 document.addEventListener('DOMContentLoaded', init);
